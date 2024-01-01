@@ -8,7 +8,7 @@ node_modules/
 *.log
 
 # Python virtualenv
-.venv
+.venv*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -167,6 +167,11 @@ wolfram.txt
 
 # DB on disk for TeachableAgent
 tmp/
+test/my_tmp/*
 
 # Storage for the AgentEval output
 test/test_files/agenteval-in-out/out/
+
+# Files created by tests
+*tmp_code_*
+test/agentchat/test_agent_scripts/*

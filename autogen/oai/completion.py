@@ -229,7 +229,8 @@ class Completion(openai_Completion):
                 sleep(retry_wait_time)
             except APIError as err:
                 error_code = err and err.json_body and isinstance(err.json_body, dict) and err.json_body.get("error")
-                error_code = error_code and error_code.get("code")
+                if isinstance(error_code, dict):
+                    error_code = error_code.get("code")
                 if error_code == "content_filter":
                     raise
                 # transient error
@@ -429,7 +430,7 @@ class Completion(openai_Completion):
                     if previous_num_completions:
                         n_tokens_list[i] += n_output_tokens
                         responses_list[i].extend(responses)
-                        # Assumption 1: assuming requesting n1, n2 responses separatively then combining them
+                        # Assumption 1: assuming requesting n1, n2 responses separately then combining them
                         # is the same as requesting (n1+n2) responses together
                     else:
                         n_tokens_list.append(n_output_tokens)
