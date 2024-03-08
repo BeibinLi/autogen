@@ -53,7 +53,7 @@ setuptools.setup(
         "teachable": ["chromadb"],
         "lmm": ["replicate", "pillow"],
         "graph": ["networkx", "matplotlib"],
-        "gemini": ["google-generativeai", "pydash", "pillow"],
+        "gemini": ["google-generativeai>=0.3.2", "pydash", "pillow"],
         "websurfer": ["beautifulsoup4", "markdownify", "pdfminer.six", "pathvalidate"],
         "redis": ["redis"],
         "jupyter-executor": [
